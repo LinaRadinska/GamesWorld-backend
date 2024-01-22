@@ -1,6 +1,14 @@
+const Game = require('../models/game');
 
-const getGames = (req, res, next) => {
-    res.json("Get All Games Is Working!");
+const getGames = async (req, res, next) => {
+    try {
+        const games = await Game.find();
+        res.json({ games: games.map(game => game.toObject({ getters: true })) });
+    } catch (err) {
+        const error = "Something went wrong, could not find games.";
+
+        return next(error);
+    }
 }
 
 const getUpcomingGames = (req, res, next) => {
