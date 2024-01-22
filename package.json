@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "\"# GamesWorld-backend\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinaRadinska/GamesWorld-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LinaRadinska/GamesWorld-backend/issues"
+  },
+  "homepage": "https://github.com/LinaRadinska/GamesWorld-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
