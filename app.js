@@ -13,10 +13,7 @@ app.use('/api/games', gamesRoutes);
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
-        console.log('Connected to MongoDB');
-        app.listen(port, () => {
-            console.log(`Server is running on http://localhost:${port}`);
-        });
+        app.listen(process.env.PORT || port);
     }).catch((error) => {
         console.error('Error connecting to MongoDB:', error.message);
     });

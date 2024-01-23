@@ -8,8 +8,8 @@ router.get('/', gamesControllers.getGames);
 
 router.get('/upcoming', gamesControllers.getUpcomingGames);
 
-router.get('/:gid', gamesControllers.getGame);
+router.get('/:gameId', gamesControllers.getGameById);
 
-router.get('/:gid/reviews', gamesControllers.getGameReviews);
+router.get('/:gameId/reviews', gamesControllers.getGameWithReviews);
 
 module.exports = router;
