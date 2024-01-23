@@ -1,11 +1,15 @@
 const Game = require('../models/game');
 
+const HttpError = require('../lib/http-error');
+const ErrorCodes = require('../lib/enums/errorCodes');
+
 const getGames = async (req, res, next) => {
+
     try {
         const games = await Game.find();
         res.json({ games: games.map(game => game.toObject({ getters: true })) });
     } catch (err) {
-        const error = "Something went wrong, could not find games.";
+        const error = new HttpError("Something went wrong, could not find games.", ErrorCodes.NOT_FOUND);
         return next(error);
     }
 }
@@ -15,7 +19,7 @@ const getUpcomingGames = async (req, res, next) => {
         const upcomingGames = await Game.find({ status: 'upcoming' });
         res.json({ games: upcomingGames.map(game => game.toObject({ getters: true })) });
     } catch (err) {
-        const error = "Something went wrong, could not find upcoming games.";
+        const error = new HttpError("Something went wrong, could not find upcoming games.", ErrorCodes.NOT_FOUND);
         return next(error);
     }
 }
@@ -26,7 +30,7 @@ const getGameById = async (req, res, next) => {
     try {
         game = await Game.findById(gameId);
     } catch (err) {
-        const error = "Something went wrong, could not find game.";
+        const error = new HttpError("Something went wrong, could not find game.", ErrorCodes.NOT_FOUND);
         return next(error);
     }
 
