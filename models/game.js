@@ -11,7 +11,8 @@ const gameSchema = new Schema({
     price: { type: Number, required: true },
     status: { type: String, required: true },
     genres: { type: [String], required: true },
-    features: { type: [String], required: true }
+    features: { type: [String], required: true },
+    reviews: [{type: mongoose.Types.ObjectId, required: true, ref: 'Review'}]
 });
 
 const Game = mongoose.model('Game', gameSchema);

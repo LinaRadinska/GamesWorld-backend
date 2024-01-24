@@ -5,6 +5,10 @@ require('dotenv').config(); // Load environment variables
 const app = express();
 const port = 5000;
 
+require('./models/game');
+require('./models/review');
+require('./models/user');
+
 const gamesRoutes = require('./routes/games-routes');
 
 // Define your routes and middleware here
