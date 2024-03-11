@@ -7,11 +7,11 @@ const gameSchema = new Schema({
     description: { type: String, required: true },
     cover: { type: String, required: true },
     trailer: { type: String, required: true },
-    discount: { type: Number, required: true },
+    discountedPrice: { type: Number, required: true },
     price: { type: Number, required: true },
     status: { type: String, required: true },
-    genres: { type: [String], required: true },
-    features: { type: [String], required: true },
+    genres: [{type: mongoose.Types.ObjectId, required: true, ref: 'Genre'}],
+    features: [{type: mongoose.Types.ObjectId, required: true, ref: 'Feature'}],
     reviews: [{type: mongoose.Types.ObjectId, required: true, ref: 'Review'}]
 });
 

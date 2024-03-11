@@ -8,10 +8,19 @@ const port = 5000;
 require('./models/game');
 require('./models/review');
 require('./models/user');
+require('./models/feature');
+require('./models/genre');
 
 const gamesRoutes = require('./routes/games-routes');
 
 // Define your routes and middleware here
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accespt, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+    next();
+});
 
 app.use('/api/games', gamesRoutes);
 
